@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Layout (Flexbox)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .header {
+        background-color: #b2d6ff;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .content {
+        background-color: bisque;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .sign-up {
+        background-color: #d7e9fe;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .layout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+      }
+
+      .feature {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .feature-1 {
+        background-color: #f5cf8d;
+      }
+      .feature-2 {
+        background-color: #c8c6fa;
+      }
+      .feature-3 {
+        background-color: #f09a9d;
+      }
+
+      /* ✅ Mobile: Hiển thị tất cả theo chiều dọc */
+      @media screen and (max-width: 767px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+        .layout {
+          flex-direction: column;
+        }
+      }
+
+      /* ✅ Tablet: Chia layout 2x2 (2 hàng, 2 cột) */
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        .layout {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: stretch;
+        }
+
+        .sign-up,
+        .feature-1 {
+          width: 48%; /* Mỗi ô chiếm 48% để đảm bảo có khoảng cách giữa các ô */
+        }
+
+        .feature-2,
+        .feature-3 {
+          width: 48%;
+        }
+      }
+
+      /* ✅ Desktop: Layout 3 cột */
+      @media screen and (min-width: 1024px) {
+        .layout {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .feature {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">HEADER</header>
+      <main class="content">CONTENT</main>
+      <div class="layout">
+        <div class="sign-up">SIGN UP</div>
+        <section class="feature feature-1">FEATURE</section>
+        <section class="feature feature-2">FEATURE</section>
+        <section class="feature feature-3">FEATURE</section>
+      </div>
+    </div>
+  </body>
+</html>
